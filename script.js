@@ -4,24 +4,48 @@ const scroll = new LocomotiveScroll({
 });
 
 
-function page4Animation() {
-    var elemC = document.querySelector("#elem-container")
-    var fixed = document.querySelector("#fixed-image")
-    elemC.addEventListener("mouseenter", function () {
-        fixed.style.display = "block"
-    })
-    elemC.addEventListener("mouseleave", function () {
-        fixed.style.display = "none"
-    })
+// function page4Animation() {
+//     var elemC = document.querySelector("#elem-container")
+//     var fixed = document.querySelector("#fixed-image")
+//     elemC.addEventListener("mouseenter", function () {
+//         fixed.style.display = "block"
+//     })
+//     elemC.addEventListener("mouseleave", function () {
+//         fixed.style.display = "none"
+//     })
 
-    var elems = document.querySelectorAll(".elem")
+//     var elems = document.querySelectorAll(".elem")
+//     elems.forEach(function (e) {
+//         e.addEventListener("mouseenter", function () {
+//             var image = e.getAttribute("data-image")
+//             fixed.style.backgroundImage = `url(${image})`
+//         })
+//     })
+// }
+
+function page4Animation() {
+    var elemC = document.querySelector("#elem-container");
+    var fixed = document.querySelector("#fixed-image");
+    
+    // Update event listeners to handle click events
+    elemC.addEventListener("click", function () {
+        // Open a new page when the element is clicked
+        window.open("https://www.technoxian.com/robo-race", "_blank"); // Replace URL with the desired link
+    });
+    
+    var elems = document.querySelectorAll(".elem");
     elems.forEach(function (e) {
-        e.addEventListener("mouseenter", function () {
-            var image = e.getAttribute("data-image")
-            fixed.style.backgroundImage = `url(${image})`
-        })
-    })
+        e.addEventListener("click", function () {
+            var link = e.getAttribute("data-link");
+            if (link) {
+                // Open a new page when the element is clicked
+                window.open(link, "_blank"); // Replace URL with the desired link
+            }
+        });
+    });
 }
+
+
 
 function swiperAnimation() {
     var swiper = new Swiper(".mySwiper", {
